@@ -1,7 +1,7 @@
 import numpy as np
 
-N = 2
-M = 3
+N = 8
+M = 5
 
 trigonometry_array = np.zeros((N, M))  
 
