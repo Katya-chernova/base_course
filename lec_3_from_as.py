@@ -7,3 +7,5 @@ print(g)
 
 x = em * G * sgm
 print (x)
+
+
