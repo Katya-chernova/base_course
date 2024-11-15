@@ -11,4 +11,3 @@ def crutoi_chuvak(a=1, b=1, c=1):
  
  
 crutoi_chuvak()
- 
