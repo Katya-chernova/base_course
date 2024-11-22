@@ -1,24 +1,29 @@
 import numpy as np
 
-def squar(shape):
+def square(shape, *args):
     
-    if shape == 'circle':
-        radius = input("Радиус круга: ")
-        squar = np.pi * radius**2
-        print(squar)
-    elif shape == 'rectangle':
-        length = input("Длина прямоугольника: ")
-        width = input("Ширина прямоугольника: ")
-        squar = width * length
-        print(squar)
-    elif shape == 'triangle':
-        height = input("Высота треугольника: ")
-        footing = input("Основание треугольника: ")
-        squar = (height * footing) * 0,5
-        print(squar)
-    return squar
-
-print(squar)
+    if shape == "circle":
+        radius = args[0]
+        return np.pi * radius**2
+    elif shape == "rectangle":
+        width, height = args
+        return width * height
+    elif shape == "triangle":
+        base, height = args
+        return 0.5 * base * height
+    else:
+        return None 
 
 
-    
+
+circle_area = square("circle", 8)
+print(f"Площадь круга: {circle_area}")
+
+rectangle_area = square("rectangle", 8, 8)
+print(f"Площадь прямоугольника: {rectangle_area}")
+
+triangle_area = square("triangle", 8, 8)
+print(f"Площадь треугольника: {triangle_area}")
+
+
+
