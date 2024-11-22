@@ -1,22 +1,19 @@
 
-def calculate_function(func, a, b, n):
- x_values = [a + i * (b - a) / (n - 1) for i in range(n)] 
- y_values = [func(x) for x in x_values]
- return y_values
 
-def square(x):
- return x**2
+def function(a, b, N):
 
-a = -2
-b = 2
-n = 5
+  x = (b - a) / (N - 1)
+  y_values = []
+  for i in range(N):
+    x = a + i * x
+    y_values.append(x**2)
+  return y_values
 
-result = calculate_function(square, a, b, n)
+a = 1
+b = 5
+N = 4
+result = function(a, b, N)
 print(result)
-
-
-
-
 
 
 
