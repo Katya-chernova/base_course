@@ -3,9 +3,10 @@ x0 = 10 # Переменная в глобальной области видим
 def move(t):
     x = x0 * t
     return (x)
+
  
 print(move(3))
-print(x)
+print(x0)
 a = 'Good'
  
 def my_func():
