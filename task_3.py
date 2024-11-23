@@ -1,6 +1,6 @@
 import numpy as np
 
-g = 9.8
+g =  9.8
 
 def energy(a,b,c):
     x1 = (a * (c**2))/2
