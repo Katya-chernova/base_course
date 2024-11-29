@@ -11,19 +11,32 @@ def square(shape, *args):
     elif shape == "triangle":
         base, height = args
         return 0.5 * base * height
-    else:
-        return None 
 
 
 
-circle_area = square("circle", 8)
-print(f"Площадь круга: {circle_area}")
+shape = input("Выберите фигуру (circle, rectangle, triangle): ").lower()
 
-rectangle_area = square("rectangle", 8, 8)
-print(f"Площадь прямоугольника: {rectangle_area}")
+if shape == "circle":
+    radius = float(input("Введите радиус: "))
+    area = square("circle", radius)
+    print(f"Площадь круга: {area}")
+elif shape == "rectangle":
+    width = float(input("Введите ширину: "))
+    height = float(input("Введите высоту: "))
+    area = square("rectangle", width, height)
+    print(f"Площадь прямоугольника: {area}")
+elif shape == "triangle":
+    base = float(input("Введите основание: "))
+    height = float(input("Введите высоту: "))
+    area = square("triangle", base, height)
+    print(f"Площадь треугольника: {area}")
 
-triangle_area = square("triangle", 8, 8)
-print(f"Площадь треугольника: {triangle_area}")
+
+
+
+
+
+
 
 
 

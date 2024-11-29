@@ -1,5 +1,3 @@
-
-
 def function(a, b, N):
 
   x = (b - a) / (N - 1)
