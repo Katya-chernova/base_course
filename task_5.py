@@ -14,7 +14,7 @@ def square(shape, *args):
 
 
 
-shape = input("Выберите фигуру (circle, rectangle, triangle): ").lower()
+shape = input("Выберите фигуру (circle, rectangle, triangle): ")
 
 if shape == "circle":
     radius = float(input("Введите радиус: "))
