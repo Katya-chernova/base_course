@@ -1,9 +1,14 @@
 name = "Katya Chernova Vladimirovna"
 print(name)
 
+s = name
+su = s.upper()
+print(su)
 upper = [ord(symbol) for symbol in name.upper()]
 print(upper)
 
+sl = s.lower()
+print(sl)
 lower = [ord(symbol) for symbol in name.lower()]
 print(lower)
 
