@@ -17,7 +17,7 @@ from task_1 import Boltzmann_constant as k
 T=200
 ε = 300
 
-N = (2/np.sqrt(np.pi))*(h/(k*T)**(3/2))*(e**(-ε/(k*T)) * ε**(T/2))
+N = (2/np.sqrt(np.pi))*(h/(k*T)**(3/2))*(np.exp(-ε/(k*T)) * (ε**(T/2)))
 print(N)
 
 
