@@ -1,0 +1,40 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def polar_sist(r, phi):
+    x = r * np.cos(phi)
+    y = r * np.sin(phi)
+    return x, y
+
+
+phi = np.linspace(0, 8 * np.pi, 800)  
+r = np.exp(phi/8)
+x, y = polar_sist(r, phi)
+plt.plot(x, y, label='Логарифмическая спираль')
+
+
+phi = np.linspace(0, 8 * np.pi, 800) #Углы от 0 до 8π
+r = phi /8 
+x, y = polar_sist(r, phi)
+plt.plot(x, y, label='Архимедова спираль')
+
+
+phi = np.linspace(0.01, 8 * np.pi, 800) 
+r = 8/np.sqrt(phi) 
+x, y = polar_sist(r, phi)
+plt.plot(x, y, label='Спираль "жезл"')
+
+
+k = 8
+phi = np.linspace(0, 2 * np.pi, 800)
+r = np.sin(k * phi)
+x, y = polar_sist(r, phi)
+plt.plot(x, y, label=f'Роза (k={k})')
+
+
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.grid(True)
+
+plt.savefig('fig_8.png')

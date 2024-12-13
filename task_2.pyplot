@@ -1,3 +1,23 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+N= float()
+
+def hyperbala_plotter(x_max,x_min,N):
+x = np.linspace(0, x_max, N)
+y = 1/x
+
+plt.plot(x,y, label = "hyperbala_plotter")
+
+x = np.linspace(x_min,0, N)
+y = 1/x
+
+plt.plot(x, y, label "hyperbala_plotter")
+plt.xlabel("Coord- x")
+plt.ylabel("Coord- y")
+
+x_max = 8
+x_min = -8
+N = 100
+
+plt.savefig('fig_6.png')
