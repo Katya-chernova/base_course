@@ -1,0 +1,54 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+g = 9.81  # Ускорение свободного падения (м/с²)
+v0 = 10  # Начальная скорость (м/с)
+t = np.linspace(0, 2 * v0 / g, 100)  # Время (с)
+
+# Бросок вверх
+y_up = v0 * t - 0.5 * g * t**2
+v_up = v0 - g * t
+a_up = -g * np.ones_like(t)
+
+# Бросок вниз
+y_down = v0 * t + 0.5 * g * t**2  #из начального положения 0
+v_down = v0 + g * t
+a_down = -g * np.ones_like(t)
+
+plt.figure(figsize=(12, 8))
+
+# Графики для броска вверх
+plt.subplot(3, 2, 1)
+plt.plot(t, y_up)
+plt.xlabel('Время (с)')
+plt.ylabel('Высота (м)')
+plt.title('Высота (бросок вверх)')
+
+plt.subplot(3, 2, 2)
+plt.plot(t, y_down)
+plt.xlabel('Время (с)')
+plt.ylabel('Высота (м)')
+plt.title('Высота (бросок вниз)')
+
+plt.subplot(3, 2, 3)
+plt.plot(t, v_up)
+plt.xlabel('Время (с)')
+plt.ylabel('Скорость (м/с)')
+plt.title('Скорость (бросок вверх)')
+
+plt.subplot(3, 2, 4)
+plt.plot(t, v_down)
+plt.xlabel('Время (с)')
+plt.ylabel('Скорость (м/с)')
+plt.title('Скорость (бросок вниз)')
+
+plt.subplot(3, 2, 5)
+plt.plot(t, a_up)
+plt.xlabel('Время (с)')
+plt.ylabel('Ускорение (м/с²)')
+plt.title('Ускорение')
+
+plt.tight_layout()
+plt.show()
+
+plt.savefig('fig_7.png')
