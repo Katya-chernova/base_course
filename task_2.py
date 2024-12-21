@@ -1,22 +1,24 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+
+
 N= float()
 
-def hyperbala_plotter(x_max,x_min,N):
+def hyperbala_plotter(x_min,x_max,N):
     x = np.linspace(0, x_max, N+1)
-    y = 1/x
+    y = -1/x
 
     plt.plot(x,y, label = "hyperbala_plotter")
 
-    x = np.linspace(x_max,0, N+1)
-
-    x = np.linspace(x_min,0, N+1)
-    y = 1/x
-
+    x = np.linspace(x_max, 0, N+1)
+    x = np.linspace(x_min, 0, N+1)
+    y = -1/x
+    
     plt.plot(x,y)
     plt.xlabel("Coord- x")
     plt.ylabel("Coord- y")
+
     
     
 

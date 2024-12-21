@@ -22,3 +22,6 @@ plt.legend()
 plt.grid(True)
 
 plt.savefig('fig_44.png')
+
+
+    

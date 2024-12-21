@@ -9,7 +9,7 @@ def polar_sist(r, phi):
 
 
 
-phi = np.linspace(0, 8 * np.pi, 800) #Углы от 0 до 8π
+phi = np.linspace(0, 8 * np.pi, 800) 
 r = phi /8 
 x, y = polar_sist(r, phi)
 plt.plot(x, y, label='Архимедова спираль')
