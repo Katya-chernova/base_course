@@ -24,7 +24,7 @@ async def lala(message: Message):
 
 @router.message(F.text == 'Бесспорно!') 
 async def lala(message: Message): 
-    await message.answer('Ближайшая встреча планируется 29 января в 14:30. Удобно ли тебе встретиться с нами в это время?', reply_markup=kb.lala)
+    await message.answer('Ближайшая встреча планируется 29 января в 14:30. Удобно ли вам встретиться с нами в это время?', reply_markup=kb.lala)
 
 
 @router.message(F.text == 'Да') 
