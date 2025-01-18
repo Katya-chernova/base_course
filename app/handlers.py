@@ -15,39 +15,48 @@ class Register(StatesGroup):
 
 @router.message(CommandStart()) 
 async def cmd_starts(message: Message): 
-    await message.answer('Привет!', reply_markup=kb.main) 
-    await message.reply('Как дела?') 
- 
-@router.message(Command('help')) 
-async def cmd_help(message: Message): 
-    await message.answer('Вы нвжали на кнопку помощи')
+    await message.answer('Доброго времени суток! Этот бот является твоим помощником для регистрации на встречу в нашем языковом клубе. Ты готов начать путешествие по волшебному миру читателя?', reply_markup=kb.main) 
 
-@router.message(F.text == 'Каталог') 
+
+@router.message(F.text == 'Конечно!') 
+async def lala(message: Message): 
+    await message.answer('Ближайшая встреча планируется 29 января в 14:30. Удобно ли тебе встретиться с нами в это время?', reply_markup=kb.lala)
+
+@router.message(F.text == 'Бесспорно!') 
+async def lala(message: Message): 
+    await message.answer('Ближайшая встреча планируется 29 января в 14:30. Удобно ли тебе встретиться с нами в это время?', reply_markup=kb.lala)
+
+
+@router.message(F.text == 'Да') 
+async def lala(message: Message): 
+    await message.answer('Хорошо, (информация о встрече). Используйте команду /register, чтобы зарегистрироваться.')
+    
+
+@router.message(F.text == 'Нет') 
 async def catalog(message: Message): 
-    await message.answer('Выберите категорию товара', reply_markup=kb.catalog)
-
+    await message.answer('Хорошо, надеемся в следующий раз у тебя получится.')
 
 
 @router.message(Command('register'))
 async def register(message:Message, state: FSMContext):
     await state.set_state(Register.name)
-    await message.answer('Введите ваше имя')
+    await message.answer('Введите ваше имя.')
 
 @router.message(Register.name)
 async def register_name(message:Message, state: FSMContext):
     await state.update_data(name=message.text)
     await state.set_state(Register.age)
-    await message.answer('Введите ваш возраст')
+    await message.answer('Введите ваш возраст.')
 
 @router.message(Register.age)
 async def register_age(message:Message, state: FSMContext):
     await state.update_data(age=message.text)
     await state.set_state(Register.grade)
-    await message.answer('Введите ваш класс')
+    await message.answer('Введите ваш класс.')
 
 @router.message(Register.grade)
 async def register_age(message:Message, state: FSMContext):
     await state.update_data(grade=message.text)
     data = await state.get_data()
-    await message.answer(f'Ваше имя: {data["name"]}\nВаш возраст: {data["age"]}\nКласс: {data["grade"]}')
+    await message.answer(f'Ваше имя: {data["name"]}\nВаш возраст: {data["age"]}\nКласс: {data["grade"]}\nМы тебя ждем!')
     await state.clear()
