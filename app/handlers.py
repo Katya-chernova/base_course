@@ -15,7 +15,7 @@ class Register(StatesGroup):
 
 @router.message(CommandStart()) 
 async def cmd_starts(message: Message): 
-    await message.answer('Доброго времени суток! Этот бот является твоим помощником для регистрации на встречу в нашем языковом клубе. Ты готов начать путешествие по волшебному миру читателя?', reply_markup=kb.main) 
+    await message.answer('Доброго времени суток! Этот бот является твоим помощником для регистрации на встречу в наш книжный клуб. Ты готов начать путешествие по волшебному миру читателя?', reply_markup=kb.main) 
 
 
 @router.message(F.text == 'Конечно!') 
