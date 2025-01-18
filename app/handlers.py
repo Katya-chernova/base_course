@@ -15,12 +15,12 @@ class Register(StatesGroup):
 
 @router.message(CommandStart()) 
 async def cmd_starts(message: Message): 
-    await message.answer('Доброго времени суток! Этот бот является твоим помощником для регистрации на встречу в наш книжный клуб. Ты готов начать путешествие по волшебному миру читателя?', reply_markup=kb.main) 
+    await message.answer('Здравствуйте! Я бот, ваш помощник для регистрации на встречу нашего книжного клуба. Готовы начать?', reply_markup=kb.main) 
 
 
 @router.message(F.text == 'Конечно!') 
 async def lala(message: Message): 
-    await message.answer('Ближайшая встреча планируется 29 января в 14:30. Удобно ли тебе встретиться с нами в это время?', reply_markup=kb.lala)
+    await message.answer('Ближайшая встреча планируется 29 января в 14:30. Удобно ли вам встретиться с нами в это время?', reply_markup=kb.lala)
 
 @router.message(F.text == 'Бесспорно!') 
 async def lala(message: Message): 
@@ -34,7 +34,7 @@ async def lala(message: Message):
 
 @router.message(F.text == 'Нет') 
 async def catalog(message: Message): 
-    await message.answer('Хорошо, надеемся в следующий раз у тебя получится.')
+    await message.answer('Хорошо, надеемся в следующий раз у вас получится.')
 
 
 @router.message(Command('register'))
@@ -58,5 +58,5 @@ async def register_age(message:Message, state: FSMContext):
 async def register_age(message:Message, state: FSMContext):
     await state.update_data(grade=message.text)
     data = await state.get_data()
-    await message.answer(f'Ваше имя: {data["name"]}\nВаш возраст: {data["age"]}\nКласс: {data["grade"]}\nМы тебя ждем!')
+    await message.answer(f'Ваше имя: {data["name"]}\nВаш возраст: {data["age"]}\nКласс: {data["grade"]}\nМы вас ждем!')
     await state.clear()
