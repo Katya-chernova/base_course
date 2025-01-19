@@ -9,8 +9,3 @@ main = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text='Конечно!')],
 lala = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text='Да')],
                                      [KeyboardButton(text='Нет')]],
                             resize_keyboard=True)
-
-catalog = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Футболки', callback_data='t-shirt')],
-    [InlineKeyboardButton(text='Кроссовки', callback_data='snekers')],
-    [InlineKeyboardButton(text='Кепки', callback_data='cap')]])
