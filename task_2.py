@@ -11,8 +11,8 @@ frames_interval = np.linspace(0, 2*np.pi, 100)
 
 ex.set_xlim(-8, 8)
 ex.set_ylim(-8, 8)
+plt.axis('equal')
 a = 3
-b = 1
 
 def update(frame):
     r = a * frame

@@ -15,7 +15,7 @@ heart, = plt.plot([], [], 'o', color ="r", label = 'heart' )
 heart_line, = plt.plot([], [], '-', color = 'r', label = "heart")
 ax.set_xlim(-20, 20)
 ax.set_ylim(-20, 20)
-ax.set_aspect('equal')
+plt.axis('equal')
 
 def animate(i):
     
