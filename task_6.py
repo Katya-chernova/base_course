@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import matplotlib.animation as animation
+from matplotlib.animation import FuncAnimation
 
 side = 10 
 frames = 360  
@@ -38,7 +38,7 @@ def animate(frame):
     line.set_data(angle_x, angle_y)  
     return line,
 
-ani = animation.FuncAnimation(fig, animate, frames=np.arange(0, 360, 1), interval=interval, blit=False)
+ani = FuncAnimation(fig, animate, frames=np.arange(0, 360, 1), interval=interval, blit=False)
 ani.save("animation_6.gif", writer='pillow')
 
 plt.show()
