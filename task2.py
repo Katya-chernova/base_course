@@ -36,7 +36,7 @@ def Oz(x1, y1, z1, alpha):
 alpha = 80
 Ox, Oy, Oz = Ox(x1, y1, z1, alpha)
 
-ax.scatter(Ox, Oy, Oz, color='g') 
+ax.scatter(Ox, Oy, Oz, color='r') 
 
 plt.savefig("fig_5.png")
 
