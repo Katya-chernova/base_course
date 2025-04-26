@@ -15,7 +15,6 @@ x1 = R * np.cos(phi)
 y1 = R * np.sin(phi)
 z1 = np.zeros(100) 
 
-
 def Ox(x1, y1, z1, alpha):
     x2 = x1
     y2 = y1 * np.cos(alpha) - z1 * np.sin(alpha)
