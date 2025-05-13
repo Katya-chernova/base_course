@@ -11,9 +11,11 @@ z = R * np.outer(np.ones(np.size(phi)), np.cos(theta))
 
 ax.plot_wireframe(x, y, z, rstride=10, cstride=10)
 
-x1 = R * np.cos(phi)
-y1 = R * np.sin(phi)
-z1 = np.zeros(100) 
+x_1 = R * np.cos(phi)
+y_1 = R * np.sin(phi)
+z_1 = np.zeros(100) 
+
+ax.scatter (x_1, y_1, z_1, color='r')
 
 def Ox(x1, y1, z1, alpha):
     x2 = x1
