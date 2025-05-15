@@ -1,11 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
+fix, ax = plt.subplots(subplot_kw={"projection": "3d"})
 
-fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-
-phi = np.linspace(0, 2*np.pi, 100) # Угол phi (азимут)
-theta = np.linspace(0, np.pi, 100)  # Угол theta (зенит)
 R = 5  
+
+phi = np.linspace(0, 2 * np.pi, 100)  
+theta = np.linspace(0, np.pi, 100)  
 
 x = R * np.outer(np.cos(phi), np.sin(theta))
 y = R * np.outer(np.sin(phi), np.sin(theta))
@@ -13,76 +13,68 @@ z = R * np.outer(np.ones(np.size(phi)), np.cos(theta))
 
 ax.plot_wireframe(x, y, z, rstride=10, cstride=10)
 
+x1 = R * np.cos(phi)
+y1 = R * np.sin(phi)
+z1 = np.zeros_like(phi)
+
 x_1 = R * np.cos(phi)
 y_1 = R * np.sin(phi)
 z_1 = np.zeros(100)
-ax.plot(x_1, y_1, z_1, color='g', linestyle='--')
 
-a = 40  
-A = 250 
-H = 50  
+a = np.radians(40)    
+A = np.radians(250) 
+H = np.radians(50) 
 
-x1 = R * np.cos(A/180*np.pi) * np.cos(a/180*np.pi)  # Перевод градусов в радианы
-y1 = R * np.cos(A/180*np.pi) * np.sin(a/180*np.pi)
-z1 = R * np.sin(A/180*np.pi)
+x_2 = x_1
+y_2 = y_1 * np.cos(a) - z_1 * np.sin(a)
+z_2 = y_1 * np.sin(a) + z_1 * np.cos(a)
 
-def Ox(x1, y1, z1, a): 
-    a_rad = np.radians(a)
-    x2 = x1
-    y2 = y1 * np.cos(a_rad) - z1 * np.sin(a_rad)
-    z2 = y1 * np.sin(a_rad) + z1 * np.cos(a_rad)
-    return x2, y2, z2
+x2 = x1
+y2 = y1 * np.cos(a) - z1 * np.sin(a)
+z2 = y1 * np.sin(a) + z1 * np.cos(a)
 
-def Oy(x1, y1, z1, A): 
-    b_rad = np.radians(A)
-    y2 = y1
-    x2 = x1 * np.cos(b_rad) + z1 * np.sin(b_rad)
-    z2 = -x1 * np.sin(b_rad) + z1 * np.cos(b_rad)
-    return x2, y2, x2
+x3 = x2 * np.cos(H) + z2 * np.sin(H)
+y3 = y2
+z3 = -x2 * np.sin(H) + z2 * np.cos(H)
 
-def Oz(x1, y1, z1, H): 
-    t_rad = np.radians(H)
-    z2 = z1
-    x2 = x1 * np.cos(t_rad) - y1 * np.sin(t_rad)
-    y2 = x1 * np.sin(t_rad) + y1 * np.cos(t_rad)
-    return x2, y2, z2
+x_3 = x3 * np.cos(A) - y3 * np.sin(A)
+y_3 = x3 * np.sin(A) + y3 * np.cos(A)
+z_3 = z3
+ax.plot(x_1, y_1, z_1, color='r' )
 
-x2, y2, z2 = Oz(x1, y1, z1, H)
-x3, y3, z3 = Oy(x2, y2, z2, A)
-x4, y4, z4 = Ox(x3, y3, z3, a)
+ax.plot(x_2, y_2, z_2, color='orange')
 
-ax.scatter(x4, y4, z4, c='r')
+ax.plot(x_3, y_3, z_3, color='y')
 
-x1 = R * np.cos(a/180*np.pi) * np.cos(a/180*np.pi) 
-y1 = R * np.cos(a/180*np.pi) * np.sin(a/180*np.pi)
-z1 = R * np.sin(a/180*np.pi)
 
-ygt = np.linspace(0, 2*np.pi, 100)
-x_2 = x1
-y_2 = y1 * np.cos(ygt) - z1 * np.sin(ygt)
-z_2 = y1 * np.sin(ygt) + z1 * np.cos(ygt)
-ax.plot(x_2, y_2, z_2, color='y', linestyle='--')
+a_tok = (40)  
+b_tok = 250  
+t_tok = (50)  
 
-x2 = R * np.cos(A/180*np.pi) * np.cos(a/180*np.pi)
-y2 = R * np.cos(A/180*np.pi) * np.sin(a/180*np.pi)
-z2 = R * np.sin(A/180*np.pi)
+a_rad = np.radians(a_tok)
+b_rad = np.radians(b_tok)
+t_rad = np.radians(t_tok)
 
-frt = np.linspace(0, 2*np.pi, 100)
-x_3 =  y2
-y_3 = x2 * np.cos(frt) + z2 * np.sin(frt)
-z_3 = -x2 * np.sin(frt) + z2 * np.cos(frt)
-ax.plot(x_3, y_3, z_3, color='b', linestyle='--')
+x0 = R * np.cos(b_rad) * np.cos(t_rad)  
+y0 = R * np.cos(b_rad) * np.sin(t_rad)
+z0 = R * np.sin(b_rad)
 
-x3 = R * np.cos(H/180*np.pi) * np.cos(a/180*np.pi)
-y3 = R * np.cos(H/180*np.pi) * np.sin(a/180*np.pi)
-z3 = R * np.sin(H/180*np.pi)
+x1_tok = x0
+y1_tok = y0 * np.cos(a_rad) - z0 * np.sin(a_rad)
+z1_tok = y0 * np.sin(a_rad) + z0 * np.cos(a_rad)
 
-qaz = np.linspace(0, 2*np.pi, 100)
-x_4 =  z3
-y_4 = x3 * np.cos(qaz) - y3 * np.sin(qaz)
-z_4 = x3 * np.sin(qaz) + y3 * np.cos(qaz)
-ax.plot(x_4, y_4, z_4, color='c', linestyle='--')
+x2_tok = x1_tok * np.cos(A) + z1_tok * np.sin(A) 
+y2_tok = y1_tok
+z2_tok = -x1_tok * np.sin(A) + z1_tok * np.cos(A)
 
+x_3_tok = x2_tok * np.cos(H) - y2_tok * np.sin(H)
+y_3_tok = x2_tok * np.sin(H) + y2_tok * np.cos(H)
+z_3_tok = z2_tok
+
+
+x0 = R * np.cos(np.radians(b_tok)) * np.cos(np.radians(a_tok))
+y0 = R * np.cos(np.radians(b_tok)) * np.sin(np.radians(a_tok))
+z0 = R * np.sin(np.radians(b_tok))
+
+ax.scatter(x0, y0, z0,s=50, color='red')
 plt.savefig("fig_7.png")
-
-
