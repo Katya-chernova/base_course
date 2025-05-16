@@ -15,67 +15,49 @@ ax.plot_wireframe(x, y, z, rstride=10, cstride=10)
 
 x_1 = R * np.cos(phi)
 y_1 = R * np.sin(phi)
-z_1 = np.zeros(100)  
+z_1 = np.zeros(100)
 
-a = (-10  )
-b = 50  
-t = (-10 ) 
-
-a1 = np.radians(a)
-b1 = np.radians(b)
-t1 = np.radians(t)
-
-x_2 = x_1  
-y_2 = y_1 * np.cos(a1) - z_1 * np.sin(a1)
-z_2 = y_1 * np.sin(a1) + z_1 * np.cos(a1)
+a = np.radians(-10)      
+b = np.radians(50) 
+t = np.radians(-10)
 
 x1 = x_1
-y1 = y_1 * np.cos(a1) - z_1 * np.sin(a1)
-z1 = y_1 * np.sin(a1) + z_1 * np.cos(a1)
+y1 = y_1 * np.cos(a) - z_1 * np.sin(a)
+z1 = y_1 * np.sin(a) + z_1 * np.cos(a)
 
-x2 = x1 * np.cos(b1) + z1 * np.sin(b1)
+x2 = x1 * np.cos(b) + z1 * np.sin(b)
 y2 = y1
-z2 = -x1 * np.sin(b1) + z1 * np.cos(b1)
+z2 = -x1 * np.sin(b) + z1 * np.cos(b)
 
-x_3 = x2 * np.cos(t1) - y2 * np.sin(t1)
-y_3 = x2 * np.sin(t1) + y2 * np.cos(t1)
-z_3 = z2
+x3 = x2 * np.cos(t) - y2 * np.sin(t)
+y3 = x2 * np.sin(t) + y2 * np.cos(t)
+z3 = z2
 
 ax.plot(x_1, y_1, z_1, 'r')
 
-ax.plot(x_2, y_2, z_2, 'orange')
+ax.plot(x1, y1, z1, 'orange')
 
-ax.plot(x_3, y_3, z_3, color='y')
+ax.plot(x3, y3, z3, color='y')
 
-a_tok = (-10)  
-b_tok = 50  
-t_tok = (-10)  
-
-a_rad = np.radians(a_tok)
-b_rad = np.radians(b_tok)
-t_rad = np.radians(t_tok)
-
-x0 = R * np.cos(b_rad) * np.cos(t_rad)  
-y0 = R * np.cos(b_rad) * np.sin(t_rad)
-z0 = R * np.sin(b_rad)
+x0 = R * np.cos(a) * np.cos(t)
+y0 = R * np.cos(a) * np.sin(t)
+z0 = R * np.sin(a)
 
 x1_tok = x0
-y1_tok = y0 * np.cos(a_rad) - z0 * np.sin(a_rad)
-z1_tok = y0 * np.sin(a_rad) + z0 * np.cos(a_rad)
+y1_tok = y0 * np.cos(a) - z0 * np.sin(a)
+z1_tok = y0 * np.sin(a) + z0 * np.cos(a)
 
-x2_tok = x1_tok * np.cos(b1) + z1_tok * np.sin(b1) 
+x2_tok = x1_tok * np.cos(b) + z1_tok * np.sin(b)
 y2_tok = y1_tok
-z2_tok = -x1_tok * np.sin(b1) + z1_tok * np.cos(b1)
+z2_tok = -x1_tok * np.sin(b) + z1_tok * np.cos(b)
 
-x_3_tok = x2_tok * np.cos(t1) - y2_tok * np.sin(t1)
-y_3_tok = x2_tok * np.sin(t1) + y2_tok * np.cos(t1)
-z_3_tok = z2_tok
+new_t_tok = t + 5  
+t_tok = np.radians(new_t_tok)
 
+x3_tok = x2_tok * np.cos(t_tok) - y2_tok * np.sin(t_tok)
+y3_tok = x2_tok * np.sin(t_tok) + y2_tok * np.cos(t_tok)
+z3_tok = z2_tok
 
-x0 = R * np.cos(np.radians(b_tok)) * np.cos(np.radians(a_tok))
-y0 = R * np.cos(np.radians(b_tok)) * np.sin(np.radians(a_tok))
-z0 = R * np.sin(np.radians(b_tok))
+ax.scatter(x3_tok, y3_tok, z3_tok, s=50, color='red')
 
-ax.scatter(x0, y0, z0,s=100, color='red')
 plt.savefig("fig_6.png")
-
