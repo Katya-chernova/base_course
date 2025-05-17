@@ -51,11 +51,12 @@ x2_tok = x1_tok * np.cos(b) + z1_tok * np.sin(b)
 y2_tok = y1_tok
 z2_tok = -x1_tok * np.sin(b) + z1_tok * np.cos(b)
 
-x3_tok = x2_tok * np.cos(t) - y2_tok * np.sin(t)
-y3_tok = x2_tok * np.sin(t) + y2_tok * np.cos(t)
+x3_tok = x2_tok * np.cos(t) - z2_tok * np.sin(t)
+y3_tok = x2_tok * np.sin(t) + z2_tok * np.cos(t)
 z3_tok = z2_tok
+
+
 
 ax.scatter(x3_tok, y3_tok, z3_tok, s=50, color='red')
 
 plt.savefig("fig_6.png") 
-
